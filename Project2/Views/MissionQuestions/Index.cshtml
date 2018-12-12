@@ -6,6 +6,12 @@
 
 <h2>Index</h2>
 <p>
+    @Html.Raw((String)ViewBag.Mission)
+    <img id="FlagImage" src="@ViewBag.Image" />
+</p>
+
+
+<p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">

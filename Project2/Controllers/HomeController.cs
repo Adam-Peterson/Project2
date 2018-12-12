@@ -54,11 +54,12 @@ namespace Project2.Controllers
         public ActionResult Missions(Missions myMission)
         {
             if (ModelState.IsValid)
-            {               
-                    var MissionsQuery = db.Database.SqlQuery<Missions>("SELECT * FROM MISSIONS WHERE MissionName = " + myMission.missionName);
-                    ViewBag.MissionOutput = MissionsQuery;
-                    return RedirectToAction("Index", "MissionQuestions");
-            }
+            {
+                //var MissionsQuery = db.Database.SqlQuery<Missions>("SELECT * FROM MISSIONS WHERE MissionName = " + myMission.missionName);
+                //ViewBag.MissionOutput = MissionsQuery;
+                return RedirectToAction("Index", "MissionQuestions");
+                
+            }            
             else
             {
                 //Validation Error

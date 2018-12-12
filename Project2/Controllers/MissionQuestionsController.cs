@@ -27,8 +27,41 @@ namespace Project2.Controllers
         public ActionResult Index(Missions myMission)
         {
             var missionQuestions = db.MissionQuestions.Include(m => m.Missions);
-            var MissionsQuery = db.Database.SqlQuery<Missions>("SELECT * FROM MISSIONS WHERE MissionName = " + myMission.missionName);
-            ViewBag.MissionOutput = MissionsQuery;
+            //var MissionsQuery = db.Database.SqlQuery<Missions>("SELECT * FROM MISSIONS WHERE MissionName = " + myMission.missionName);
+            //ViewBag.MissionOutput = MissionsQuery;
+
+            if (myMission.missionName == "Moscow")
+            {
+                ViewBag.Mission = "<br><br><b>Mission Name:</b> Russia Moscow Mission<br>" +
+                "<b>Mission President’s Name:</b> Jeff McGhie <br>" +
+                "<b>Mission Address:</b> Muravskaya Ulitsa, 1 D, Floor 3<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Moscow<br>" +
+                "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Moscow 125310 Russia <br>" +
+                "<b>Language:</b> Russian <br>" +
+                "<b>Climate:</b> Really Cold <br>" +
+                "<b>Dominate Religion:</b> Russian Orthodox <br><br>";
+                ViewBag.Image = Url.Content("~/Content/images/russia_flag.jpg");
+            }
+            else if (myMission.missionName == "Portland")
+            {
+                ViewBag.Mission = "<br><br><b>Mission Name:</b> Oregon Portland Mission <br>" +
+                        "<b>Mission President’s Name:</b> Jonathan W. Bullen  <br>" +
+                        "<b>Mission Address:</b> 1400 NW Compton Dr Ste 250<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Beaverton OR 97006<br>" +
+                        "<b>Languages:</b> English, Spanish <br>" +
+                        "<b>Climate:</b> Very Wet, Slightly Humid <br>" +
+                        "<b>Dominate Religion:</b> Christian (Evangelical, Catholic)<br><br>";
+                ViewBag.Image = Url.Content("~/Content/images/FlagOregon.png");
+            }
+            else if (myMission.missionName == "Barcelona")
+            {
+                ViewBag.Mission = "<br><br><b>Mission Name:</b> Spain Barcelona Mission<br>" +
+                          "<b>Mission President’s Name:</b> Craig David Galli<br>" +
+                          "<b>Mission Address:</b> C/ Calatrava 10-12, bajos<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;08017 Barcelona ESPA&#209;A<br>" +
+                          "<b>Language:</b> Spanish<br>" +
+                          "<b>Climate:</b> Hot, Humid Summers and Rainy Winters<br>" +
+                          "<b>Dominate Religion:</b> Catholic<br><br>";
+                ViewBag.Image = Url.Content("~/Content/images/spain.jpg");
+            }
+
             return View(missionQuestions.ToList());
         }
 
