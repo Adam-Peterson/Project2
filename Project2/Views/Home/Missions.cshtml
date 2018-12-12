@@ -25,7 +25,7 @@
 
     <div class="form-horizontal">
         <div class="container">
-            @using (Html.BeginForm())
+            @using (Html.BeginForm("Index", "MissionQuestions"))
             {
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(false, "", new { @class = "text-danger" })

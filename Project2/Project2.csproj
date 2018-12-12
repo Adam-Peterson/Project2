@@ -176,6 +176,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MissionQuestionsController.cs" />
     <Compile Include="DAL\Project2Context.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -253,6 +254,11 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\MissionsFAQ.cshtml" />
     <Content Include="Views\Home\Missions.cshtml" />
+    <Content Include="Views\MissionQuestions\Create.cshtml" />
+    <Content Include="Views\MissionQuestions\Delete.cshtml" />
+    <Content Include="Views\MissionQuestions\Details.cshtml" />
+    <Content Include="Views\MissionQuestions\Edit.cshtml" />
+    <Content Include="Views\MissionQuestions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

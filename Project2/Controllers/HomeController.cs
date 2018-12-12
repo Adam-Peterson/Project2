@@ -51,13 +51,13 @@ namespace Project2.Controllers
 
         [HttpPost]
         [Authorize]
-        public ViewResult Missions(Missions myMission)
+        public ActionResult Missions(Missions myMission)
         {
             if (ModelState.IsValid)
             {               
                     var MissionsQuery = db.Database.SqlQuery<Missions>("SELECT * FROM MISSIONS WHERE MissionName = " + myMission.missionName);
                     ViewBag.MissionOutput = MissionsQuery;
-                    return View("MissionsFAQ", db.MissionQuestions.ToList());
+                    return RedirectToAction("Index", "MissionQuestions");
             }
             else
             {
