@@ -1,4 +1,5 @@
-﻿using Project2.Models;
+﻿using Project2.DAL;
+using Project2.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace Project2.Controllers
     [RequireHttps]
     public class HomeController : Controller
     {
+        private Project2Context db = new Project2Context();
 
         public ActionResult Index()
         {
@@ -44,7 +46,7 @@ namespace Project2.Controllers
         [Authorize]
         public ActionResult Missions()
         {
-            return View();
+            return View(db.Missions.ToList());
         }
 
         [HttpPost]
@@ -52,8 +54,26 @@ namespace Project2.Controllers
         public ViewResult Missions(Missions myMission)
         {
             if (ModelState.IsValid)
-            {           
-                return View();
+            {
+                if (myMission.missionName == "Moscow")
+                {
+                    string missionName = db.Missions.Find(myMission.missionName).missionName;   
+                    return View("MissionsFAQ");
+                }
+                else if (myMission.missionName == "Portland")
+                {
+
+                    return View("MissionsFAQ");
+                }
+                else if (myMission.missionName == "Barcelona")
+                {
+
+                    return View("MissionsFAQ");
+                }
+                else
+                {
+                    return View();
+                }
             }
             else
             {

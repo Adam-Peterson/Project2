@@ -198,6 +198,7 @@
     <Content Include="Content\images\Joseph Smith.jpg" />
     <Content Include="Content\images\MissionaryAngels.jpg" />
     <Content Include="Content\images\PMG.jpg" />
+    <Content Include="Content\OurStyles.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -250,6 +251,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\MissionsFAQ.cshtml" />
+    <Content Include="Views\Home\Missions.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

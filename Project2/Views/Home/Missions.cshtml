@@ -1,0 +1,46 @@
+﻿@model Project2.Models.Missions
+
+@{
+    ViewBag.Title = "Missions";
+}
+
+<h2>Missions</h2>
+
+
+
+<head>
+
+    <link rel="stylesheet" type="text/css" href="~/Content/OurStyles.css" />
+
+</head>
+
+<body>
+
+    <ul class="breadcrumb">
+        <li><a href='@Url.Action("Index", "Home")'>Home</a></li>
+        <li>Missions</li>
+    </ul>
+
+    <h2>Missions</h2>
+
+    <div class="form-horizontal">
+        <div class="container">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.missionName, "MissionName", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("MissionName", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.missionName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br />
+                <input type="submit" value="Go" />
+            }
+        </div>
+    </div>
+
+
+</body>

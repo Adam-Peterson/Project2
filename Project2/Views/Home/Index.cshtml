@@ -2,10 +2,15 @@
     ViewBag.Title = "Home Page";
 }
 
+<head>
+    <link rel="stylesheet" type="text/css" href="~/Content/OurStyles.css">
+</head>
+
 <div class="jumbotron">
     <h1>Mission Possible</h1>
     <p class="lead">An easy way to find information about your mission.</p>
-    <p><a href="#" class="btn btn-primary btn-lg">Learn More!</a></p>
+    <input type="button" class="btn btn-primary btn-lg" value="Learn More!" onclick="location.href='@Url.Action("Missions", "Home")'" />
+
 </div>
 
 <div class="row">

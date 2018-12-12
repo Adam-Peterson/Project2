@@ -4,5 +4,118 @@
     ViewBag.Title = "MissionsFAQ";
 }
 
-<h2>MissionsFAQ</h2>
+<head>
+    <style>
+        .width500 {
+            width: 500px;
+            height: 100px;
+        }
+    </style>
+    <!--Head-->
+    <link rel="stylesheet" type="text/css" href="~/Content/OurStyles.css" />
 
+    <script type="text/javascript">
+
+        function myFunction() {
+            var x = document.getElementById("myDIV");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+            document.getElementById("Question1").reset();
+        }
+
+        function myFunction2() {
+            var x = document.getElementById("myDIV2");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+            document.getElementById("Question2").reset();
+        }
+
+        function myFunction3() {
+            var x = document.getElementById("myDIV3");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+            document.getElementById("Question3").reset();
+        }
+
+        function myFunction4() {
+            var x = document.getElementById("myDIV4");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+            document.getElementById("Question4").reset();
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <ul class="breadcrumb">
+            <li><a href='@Url.Action("Index", "Home")'>Home</a></li>
+            <li><a href='@Url.Action("Missions", "Home")'>Missions</a></li>
+            <li>MissionsFAQ</li>
+        </ul>
+    </div>
+    <p>
+        @Html.Raw((String)ViewBag.Mission)
+        <img id="FlagImage" src="@ViewBag.Image" />
+    </p>
+    <br />
+    <h2>FAQ</h2>
+    <p><i><b>What is the food like?</b></i></p>
+    <button id="button1" onclick="myFunction();">Reply</button>
+    <div id="myDIV" style="display: none;">
+        <form id="Question1">
+            <input type="text" id="Question1" style.display="hidden" size="150" /> <button type="button" onclick="myFunction();">Submit Answer</button>
+        </form>
+    </div>
+    <p><pre>The BEST. It is slightly spicy, very healthy, and wonderful.</pre></p>
+    <br />
+    <p><i><b>How many white shirts and ties should I bring?</b></i></p>
+    <button id="button1" onclick="myFunction2();">Reply</button>
+    <div id="myDIV2" style="display: none;">
+        <form id="Question2">
+            <input type="text" id="Question2" style.display="hidden" size="150" /> <button type="button" onclick="myFunction2();">Submit Answer</button>
+        </form>
+    </div>
+    <p><pre>8 white shirts and all the ties you own.</pre></p>
+    <br />
+    <p><i><b>How many skirts should I bring?</b></i></p>
+    <button id="button1" onclick="myFunction3();">Reply</button>
+    <div id="myDIV3" style="display: none;">
+        <form id="Question3">
+            <input type="text" id="Question3" style.display="hidden" size="150" /> <button type="button" onclick="myFunction3();">Submit Answer</button>
+        </form>
+    </div>
+    <p><pre>Bring 7. You will acquire more on the mission.</pre></p>
+    <br />
+    <p><i><b>Should I start studying the language now?</b></i></p>
+    <button id="button1" onclick="myFunction4();">Reply</button>
+    <div id="myDIV4" style="display: none;">
+        <form id="Question4">
+            <input type="text" id="Question4" style.display="hidden" size="150" /> <button type="button" onclick="myFunction4();">Submit Answer</button>
+        </form>
+    </div>
+    <p><pre>If you can. But don't worry about it. The MTC is great.</pre></p>
+    <br />
+    <br />
+    <h4>Ask a Question!</h4>
+    <div class="container">
+        @using (Html.BeginForm())
+        {
+            <p>Question: @Html.TextBoxFor(x => x.question, new { @class = "width500" })</p>
+
+            <input type="submit" value="Submit Question" />
+        }
+    </div>
+</body>
