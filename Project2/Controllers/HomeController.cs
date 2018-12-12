@@ -54,26 +54,10 @@ namespace Project2.Controllers
         public ViewResult Missions(Missions myMission)
         {
             if (ModelState.IsValid)
-            {
-                if (myMission.missionName == "Moscow")
-                {
-                    Object MissionsQuery = db.Database.ExecuteSqlCommand("SELECT * FROM Missions LEFT OUTER JOIN MissionQuestions ON Missions.missionID = MissionQuestions.missionID");
-                    return View("MissionsFAQ", MissionsQuery);
-                }
-                else if (myMission.missionName == "Portland")
-                {
-
-                    return View("MissionsFAQ");
-                }
-                else if (myMission.missionName == "Barcelona")
-                {
-
-                    return View("MissionsFAQ");
-                }
-                else
-                {
-                    return View();
-                }
+            {               
+                    var MissionsQuery = db.Database.SqlQuery<Missions>("SELECT * FROM MISSIONS WHERE MissionName = " + myMission.missionName);
+                    ViewBag.MissionOutput = MissionsQuery;
+                    return View("MissionsFAQ", db.MissionQuestions.ToList());
             }
             else
             {

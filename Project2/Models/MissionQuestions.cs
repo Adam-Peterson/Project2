@@ -15,10 +15,6 @@ namespace Project2.Models
         public string question { get; set; }
         public string answer { get; set; }
 
-        [ForeignKey("Users")]
-        public virtual int? UserID { get; set; }
-        public virtual Users Users { get; set; }
-
         [ForeignKey("Missions")]
         public virtual int? missionID { get; set; }
         public virtual Missions Missions { get; set; }

@@ -14,7 +14,6 @@ namespace Project2.DAL
 
         }
 
-        public DbSet<Users> Users { get; set; }
         public DbSet<MissionQuestions> MissionQuestions { get; set; }
         public DbSet<Missions> Missions { get; set; }
     }

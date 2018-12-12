@@ -1,4 +1,5 @@
-﻿@model Project2.Models.MissionQuestions
+﻿@model IEnumerable<Project2.Models.MissionQuestions>
+
 
 @{
     ViewBag.Title = "MissionsFAQ";
@@ -67,8 +68,8 @@
         </ul>
     </div>
     <p>
-        @Html.Raw((String)ViewBag.Mission)
-        <img id="FlagImage" src="@ViewBag.Image" />
+        @ViewBag.MissionOutput.missionName
+        <img id="FlagImage" src="@ViewBag.MissionOutput.MissionSymbol" />
     </p>
     <br />
     <h2>FAQ</h2>
