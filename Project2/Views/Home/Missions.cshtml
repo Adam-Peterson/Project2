@@ -29,18 +29,23 @@
             {
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(false, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    @Html.LabelFor(model => model.missionName, "MissionName", htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.DropDownList("MissionName", null, htmlAttributes: new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.missionName, "", new { @class = "text-danger" })
-                    </div>
-                </div>
+                <table>
+
+                    <tr>
+                        <th>
+                            @Html.DropDownListFor(x => x.missionName, new[] {
+                        new SelectListItem()
+                        {Text = "Moscow", Value = "Moscow"},
+                        new SelectListItem()
+                        {Text = "Portland", Value = "Portland"},
+                        new SelectListItem()
+                        {Text = "Barcelona", Value = "Barcelona"}}, "Select a Mission")
+                        </th>
+                    </tr>
+                </table>
                 <br />
                 <input type="submit" value="Go" />
             }
         </div>
     </div>
-
-
 </body>

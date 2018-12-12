@@ -46,7 +46,7 @@ namespace Project2.Controllers
         [Authorize]
         public ActionResult Missions()
         {
-            return View(db.Missions.ToList());
+            return View();
         }
 
         [HttpPost]
@@ -57,8 +57,8 @@ namespace Project2.Controllers
             {
                 if (myMission.missionName == "Moscow")
                 {
-                    string missionName = db.Missions.Find(myMission.missionName).missionName;   
-                    return View("MissionsFAQ");
+                    Object MissionsQuery = db.Database.ExecuteSqlCommand("SELECT * FROM Missions LEFT OUTER JOIN MissionQuestions ON Missions.missionID = MissionQuestions.missionID");
+                    return View("MissionsFAQ", MissionsQuery);
                 }
                 else if (myMission.missionName == "Portland")
                 {
